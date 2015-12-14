@@ -1,0 +1,44 @@
+function pair(str) {
+
+  // array for results 
+  var result = []; 
+  //array for str 
+  var strarray = str.split(""); 
+  //go through strarray 
+  for (var i = 0; i < strarray.length; i++){
+    if (strarray[i] == "A"){
+      result.push("A"); 
+      result.push("T"); 
+    }
+     if (strarray[i] == "T"){
+      result.push("T"); 
+      result.push("A"); 
+    }
+     if (strarray[i] == "G"){
+      result.push("G"); 
+      result.push("C"); 
+    }
+     if (strarray[i] == "C"){
+      result.push("C"); 
+      result.push("G"); 
+    }
+  }
+  var miniarray = []; 
+  var newresult = []; 
+  
+  //go through smaller array 
+  for (var j = 0; j < result.length; j++){
+    if (j % 2 === 0){
+       miniarray.push(result[j]);
+       miniarray.push(result[j+1]); 
+       newresult.push(miniarray); 
+      miniarray = []; 
+      
+    }
+   
+  }
+  
+ return newresult;
+}
+
+pair("GCG");
